@@ -1,0 +1,17 @@
+# The HTTP endpoint for your Prisma API
+#endpoint: ''
+endpoint: https://us1.prisma.sh/timo-m-5ccf61/hackernews-node-graphql-intro/dev
+
+
+# Points to the file that contains your datamodel
+datamodel: datamodel.prisma
+
+# Specifies language & location for the generated Prisma client
+generate: 
+  - generator: javascript-client 
+    output: ../src/generated/prisma-client
+
+# Hook which automatically calls prisma generate , after using prisma CLI prisma deploy
+hooks: 
+  post-deploy: 
+    - prisma generate
